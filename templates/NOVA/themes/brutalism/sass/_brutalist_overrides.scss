@@ -1,0 +1,536 @@
+// ============================================
+// NEO-BRUTALISM SCSS OVERRIDES
+// Component-specific brutalist styles
+// ============================================
+
+// ============================================
+// BRUTALIST MIXINS
+// ============================================
+
+@mixin nb-hard-shadow($offset: $nb-shadow-offset, $color: $nb-black) {
+    box-shadow: $offset $offset 0 $color;
+}
+
+@mixin nb-hard-shadow-hover($offset: 2px, $color: $nb-black) {
+    box-shadow: $offset $offset 0 $color;
+    transform: translate(#{$nb-shadow-offset - $offset}, #{$nb-shadow-offset - $offset});
+}
+
+@mixin nb-border($width: $nb-border-width, $color: $nb-black) {
+    border: $width solid $color !important;
+}
+
+@mixin nb-no-radius {
+    border-radius: 0 !important;
+}
+
+@mixin nb-block-element {
+    @include nb-border;
+    @include nb-hard-shadow;
+    @include nb-no-radius;
+}
+
+// ============================================
+// GLOBAL OVERRIDES
+// ============================================
+
+// Remove all border-radius
+* {
+    border-radius: 0 !important;
+}
+
+// Body styles
+body {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-normal;
+    background-color: $body-bg;
+    color: $body-color;
+}
+
+// ============================================
+// TYPOGRAPHY OVERRIDES
+// ============================================
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    color: $headings-color;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+// ============================================
+// BUTTON OVERRIDES
+// ============================================
+
+.btn {
+    @include nb-block-element;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: none !important;
+    
+    &:hover {
+        @include nb-hard-shadow-hover;
+        background-color: $primary !important;
+        color: $nb-black !important;
+    }
+    
+    &:active {
+        box-shadow: none;
+        transform: translate($nb-shadow-offset, $nb-shadow-offset);
+    }
+    
+    &:focus {
+        outline: $nb-border-width solid $nb-black;
+        outline-offset: 2px;
+    }
+}
+
+.btn-primary {
+    background-color: $primary !important;
+    border-color: $nb-black !important;
+    color: $nb-black !important;
+    
+    &:hover {
+        background-color: $nb-black !important;
+        color: $primary !important;
+    }
+}
+
+.btn-secondary {
+    background-color: $nb-mint !important;
+    color: $nb-black !important;
+    
+    &:hover {
+        background-color: $nb-lime !important;
+        color: $nb-black !important;
+    }
+}
+
+.btn-success {
+    background-color: $success !important;
+    color: $nb-black !important;
+}
+
+.btn-danger {
+    background-color: $danger !important;
+    color: $nb-white !important;
+}
+
+.btn-outline-primary,
+.btn-outline-secondary {
+    background: transparent !important;
+    @include nb-border;
+    
+    &:hover {
+        background-color: $primary !important;
+    }
+}
+
+// ============================================
+// CARD OVERRIDES
+// ============================================
+
+.card {
+    @include nb-block-element;
+    @include nb-hard-shadow($nb-shadow-offset * 1.5);
+    overflow: hidden;
+    
+    &:hover {
+        @include nb-hard-shadow-hover;
+    }
+}
+
+.card-header {
+    background-color: $primary !important;
+    border-bottom: $nb-border-width solid $nb-black !important;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}
+
+.card-footer {
+    background-color: $nb-bg-cream;
+    border-top: $nb-border-width solid $nb-black !important;
+}
+
+// ============================================
+// HEADER & NAVIGATION OVERRIDES
+// ============================================
+
+.navbar {
+    background-color: $header-bg-color;
+    border-bottom: $nb-border-width solid $nb-black;
+    box-shadow: none;
+}
+
+.navbar-nav {
+    .nav-link {
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: $nb-black !important;
+        border-right: $nb-border-width - 1px solid $nb-black;
+        transition: none !important;
+        
+        &:hover {
+            background-color: $primary !important;
+        }
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+    
+    .nav-item.active .nav-link {
+        background-color: $nb-black !important;
+        color: $nb-white !important;
+    }
+}
+
+.navbar-toggler {
+    @include nb-border;
+    
+    &:hover {
+        background-color: $primary;
+    }
+}
+
+// Dropdown menus
+.dropdown-menu {
+    @include nb-border;
+    @include nb-hard-shadow($nb-shadow-offset * 1.5);
+    padding: 0;
+    margin-top: 0 !important;
+}
+
+.dropdown-item {
+    font-weight: $font-weight-semibold;
+    border-bottom: 1px solid $nb-black;
+    transition: none !important;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+    
+    &:hover,
+    &:focus {
+        background-color: $primary !important;
+        color: $nb-black !important;
+    }
+}
+
+// ============================================
+// PRODUCT BOX OVERRIDES
+// ============================================
+
+.productbox,
+.productbox-inner {
+    @include nb-block-element;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    
+    &:hover {
+        @include nb-hard-shadow-hover;
+    }
+}
+
+.productbox-image {
+    border-bottom: $nb-border-width solid $nb-black;
+}
+
+.productbox-title {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.productbox-price {
+    font-family: $font-mono;
+    font-size: rem(24px);
+    font-weight: $font-weight-bolder;
+    color: $nb-black;
+    background-color: $primary;
+    display: inline-block;
+    padding: map-get($spacers, 2) map-get($spacers, 3);
+    border: $nb-border-width - 1px solid $nb-black;
+}
+
+// ============================================
+// RIBBON/BADGE OVERRIDES
+// ============================================
+
+.ribbon,
+.badge {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    @include nb-border($nb-border-width - 1px);
+    box-shadow: 2px 2px 0 $nb-black;
+}
+
+// ============================================
+// FORM OVERRIDES
+// ============================================
+
+.form-control {
+    @include nb-border;
+    @include nb-no-radius;
+    font-weight: $font-weight-normal;
+    transition: none !important;
+    
+    &:focus {
+        border-color: $nb-black !important;
+        box-shadow: $nb-shadow-offset $nb-shadow-offset 0 $primary !important;
+    }
+}
+
+label,
+.form-label {
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: $font-size-sm;
+}
+
+.input-group {
+    @include nb-border;
+    @include nb-hard-shadow;
+    
+    .form-control {
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.input-group-text {
+    background-color: $primary;
+    border: none;
+    border-left: $nb-border-width solid $nb-black;
+    font-weight: $font-weight-semibold;
+}
+
+// ============================================
+// FOOTER OVERRIDES
+// ============================================
+
+footer,
+.footer {
+    background-color: $footer-bg-color;
+    color: $footer-color;
+    border-top: $nb-shadow-offset * 1.5 solid $primary;
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: $primary;
+        text-transform: uppercase;
+        font-weight: $font-weight-bolder;
+    }
+    
+    a {
+        color: $nb-white;
+        
+        &:hover {
+            color: $primary;
+        }
+    }
+    
+    ul li {
+        border-bottom: 1px solid rgba($nb-white, 0.2);
+    }
+}
+
+.copyright {
+    background-color: $primary;
+    color: $nb-black;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+}
+
+// ============================================
+// TABLE OVERRIDES
+// ============================================
+
+.table {
+    @include nb-border;
+    
+    th, td {
+        border: $nb-border-width - 1px solid $nb-black !important;
+    }
+    
+    thead th {
+        background-color: $primary;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+    }
+    
+    tbody tr:hover {
+        background-color: $primary;
+    }
+}
+
+// ============================================
+// ALERT OVERRIDES
+// ============================================
+
+.alert {
+    @include nb-block-element;
+    font-weight: $font-weight-semibold;
+}
+
+.alert-success {
+    background-color: $success;
+    color: $nb-black;
+}
+
+.alert-danger {
+    background-color: $danger;
+    color: $nb-white;
+}
+
+.alert-warning {
+    background-color: $warning;
+    color: $nb-black;
+}
+
+.alert-info {
+    background-color: $info;
+    color: $nb-white;
+}
+
+// ============================================
+// MODAL OVERRIDES
+// ============================================
+
+.modal-content {
+    @include nb-border;
+    box-shadow: 8px 8px 0 $nb-black;
+}
+
+.modal-header {
+    background-color: $primary;
+    border-bottom: $nb-border-width solid $nb-black !important;
+    
+    .modal-title {
+        font-weight: $font-weight-bolder;
+        text-transform: uppercase;
+    }
+    
+    .close,
+    .btn-close {
+        @include nb-border($nb-border-width - 1px);
+        background: $nb-white;
+        opacity: 1;
+    }
+}
+
+.modal-footer {
+    border-top: $nb-border-width solid $nb-black !important;
+    background-color: $nb-bg-cream;
+}
+
+// ============================================
+// PAGINATION OVERRIDES
+// ============================================
+
+.page-link {
+    @include nb-border;
+    background-color: $nb-white;
+    color: $nb-black;
+    font-weight: $font-weight-semibold;
+    transition: none !important;
+    
+    &:hover {
+        background-color: $primary;
+        color: $nb-black;
+    }
+}
+
+.page-item.active .page-link {
+    background-color: $nb-black;
+    color: $nb-white;
+    border-color: $nb-black;
+}
+
+// ============================================
+// ACCORDION OVERRIDES
+// ============================================
+
+.accordion-item {
+    @include nb-border;
+    margin-bottom: -$nb-border-width;
+}
+
+.accordion-button {
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    transition: none !important;
+    
+    &:not(.collapsed) {
+        background-color: $primary;
+        color: $nb-black;
+    }
+    
+    &::after {
+        content: '+';
+        background: none;
+        font-size: 1.5rem;
+        font-weight: $font-weight-bolder;
+    }
+    
+    &:not(.collapsed)::after {
+        content: '−';
+    }
+}
+
+.accordion-body {
+    border-top: $nb-border-width solid $nb-black;
+}
+
+// ============================================
+// TAB OVERRIDES
+// ============================================
+
+.nav-tabs {
+    border-bottom: $nb-border-width solid $nb-black;
+    
+    .nav-link {
+        @include nb-border;
+        margin-bottom: -$nb-border-width;
+        background-color: $nb-bg-cream;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        transition: none !important;
+        
+        &:hover {
+            background-color: $primary;
+        }
+        
+        &.active {
+            background-color: $nb-white;
+            border-bottom-color: $nb-white !important;
+        }
+    }
+}
+
+.tab-content {
+    @include nb-border;
+    border-top: none;
+    background-color: $nb-white;
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+    .btn {
+        @include nb-hard-shadow(3px);
+    }
+    
+    .card,
+    .productbox {
+        @include nb-hard-shadow(4px);
+    }
+}

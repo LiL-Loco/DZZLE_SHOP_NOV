@@ -1,0 +1,203 @@
+@import '../../base/sass/functions';
+@import 'variables';
+@import '../../base/sass/_base_crit.scss';
+
+// ============================================
+// NEO-BRUTALISM CRITICAL STYLES
+// Above-the-fold optimizations
+// ============================================
+
+.search-wrapper {
+  width: 100%;
+}
+
+#header-top-bar, header {
+  background-color: $header-bg-color;
+  border-bottom: $nb-border-width solid $nb-black;
+  
+  a:not(.dropdown-item):not(.btn) {
+    text-decoration: none;
+    color: $header-color;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $primary;
+      background-color: transparent;
+    }
+  }
+}
+
+header {
+  .form-control, .form-control:focus {
+    background-color: $header-bg-color;
+    color: $header-color;
+    border: $nb-border-width solid $nb-black !important;
+    border-radius: 0 !important;
+  }
+}
+
+.form-control {
+  font-family: $font-family-sans-serif;
+  border: $nb-border-width solid $nb-black !important;
+  border-radius: 0 !important;
+}
+
+/* spacing end */
+
+.btn-secondary {
+  background-color: $nb-black;
+  color: $nb-white;
+  border: $nb-border-width solid $nb-black !important;
+  box-shadow: $nb-shadow-offset $nb-shadow-offset 0 $nb-black;
+  
+  &:hover {
+    background-color: $nb-white;
+    color: $nb-black;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: $nb-black;
+  border: $nb-border-width solid $nb-black !important;
+  box-shadow: $nb-shadow-offset $nb-shadow-offset 0 $nb-black;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  
+  &:hover {
+    background-color: $nb-black;
+    color: $primary;
+  }
+}
+
+.productlist-filter-headline {
+  border-bottom: $nb-border-width solid $nb-black;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}
+
+.content-cats-small {
+  margin-bottom: map_get($spacers, 6);
+  @include media-breakpoint-up(md) {
+    > div {
+      margin-bottom: map_get($spacers, 3);
+    }
+  }
+  .sub-categories {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%;
+    border: $nb-border-width solid $nb-black;
+    box-shadow: $nb-shadow-offset $nb-shadow-offset 0 $nb-black;
+
+    .subcategories-image {
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: map_get($spacers, 3);
+      border-bottom: $nb-border-width solid $nb-black;
+    }
+  }
+
+  @include clearfix();
+
+  .outer {
+    margin-bottom: map-get($spacers, 2);
+  }
+
+  .caption {
+    margin-bottom: map-get($spacers, 2);
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(md) {
+      text-align: center;
+    }
+  }
+
+  hr {
+    margin-top: map-get($spacers, 3);
+    margin-bottom: map-get($spacers, 3);
+    padding-left: 0;
+    list-style: none;
+    border-top: $nb-border-width solid $nb-black;
+  }
+}
+
+/* image loading indicator */
+
+.lazyloading {
+  color: transparent;
+  width: auto;
+  height: auto;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+// ============================================
+// CRITICAL BRUTALIST OVERRIDES
+// ============================================
+
+// Remove all border-radius globally
+* {
+  border-radius: 0 !important;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: $font-weight-bolder;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: $nb-black;
+}
+
+// Cards critical
+.card {
+  border: $nb-border-width solid $nb-black !important;
+  box-shadow: $nb-shadow-offset * 1.5 $nb-shadow-offset * 1.5 0 $nb-black;
+  border-radius: 0 !important;
+}
+
+.card-header {
+  background-color: $primary !important;
+  border-bottom: $nb-border-width solid $nb-black !important;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}
+
+// Navbar critical
+.navbar {
+  border-bottom: $nb-border-width solid $nb-black;
+  box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  
+  &:hover {
+    background-color: $primary !important;
+  }
+}
+
+// Product boxes critical
+.productbox,
+.productbox-inner {
+  border: $nb-border-width solid $nb-black !important;
+  box-shadow: $nb-shadow-offset $nb-shadow-offset 0 $nb-black;
+  border-radius: 0 !important;
+}
+
+.productbox-price {
+  font-family: $font-mono;
+  font-weight: $font-weight-bolder;
+  background-color: $primary;
+  border: ($nb-border-width - 1px) solid $nb-black;
+  padding: map-get($spacers, 2) map-get($spacers, 3);
+  display: inline-block;
+}

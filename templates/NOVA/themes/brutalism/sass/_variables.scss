@@ -1,0 +1,486 @@
+// ============================================
+// NEO-BRUTALISM THEME VARIABLES
+// NOVA Template - Brutalist Edition
+// ============================================
+
+$image-path:                        'images' !default;
+
+// ============================================
+// NEO-BRUTALISM COLOR PALETTE - SUPER VIBRANT
+// ============================================
+
+// Primary Neo-Brutalist Colors - COLORFUL EDITION
+$nb-black:                          #1a1a1a;
+$nb-white:                          #FFFFFF;
+$nb-pink:                           #FF6EC7;    // Hot Pink - PRIMARY
+$nb-mint:                           #7DF9FF;    // Electric Cyan/Mint
+$nb-lime:                           #BFFF00;    // Lime Green
+$nb-yellow:                         #FFE156;    // Sunny Yellow
+$nb-orange:                         #FF9F43;    // Juicy Orange
+$nb-purple:                         #A855F7;    // Electric Purple
+$nb-blue:                           #88D8FF;    // Sky Blue
+$nb-coral:                          #FF6B6B;    // Coral Red
+$nb-lavender:                       #E879F9;    // Lavender Pink
+$nb-red:                            #FF6B6B;    // Alias for coral
+$nb-green:                          #BFFF00;    // Alias for lime
+
+// Background Colors
+$nb-bg-cream:                       #FFF9E6;    // Warm cream
+$nb-bg-paper:                       #FFFFFF;    // White
+$nb-bg-gray:                        #F0F0F0;    // Light gray
+$nb-bg-pink:                        #FF6EC7;    // Hot Pink background
+$nb-bg-mint:                        #7DF9FF;    // Mint background
+
+// ============================================
+// GRAYSCALE - HARSH CONTRASTS
+// ============================================
+
+$gray-lighter:                      #F0F0F0 !default;
+$gray-light:                        #CCCCCC !default;
+$gray:                              #666666 !default;
+$gray-dark:                         #333333 !default;
+$gray-medium:                       #E0E0E0 !default;
+$gray-darker:                       $nb-black !default;
+$sand:                              #E0E0E0 !default;
+$cool-white:                        $nb-bg-paper !default;
+
+// ============================================
+// THEME COLORS - NEO-BRUTALIST
+// ============================================
+
+$primary:                           $nb-pink !default;    // Hot Pink as primary
+$secondary:                         $nb-mint !default;    // Mint as secondary
+$secondary-color:                   $nb-black !default;   // Black text on secondary
+$success:                           $nb-lime !default;
+$bg-success:                        lighten($nb-lime, 20%) !default;
+$info:                              $nb-blue !default;
+$bg-info:                           lighten($nb-blue, 20%) !default;
+$warning:                           $nb-orange !default;
+$bg-warning:                        lighten($nb-orange, 20%) !default;
+$danger:                            $nb-coral !default;
+$bg-danger:                         lighten($nb-coral, 20%) !default;
+$bg-main:                           $nb-bg-pink !default;  // Pink background!
+$bg-main-ligther:                   $nb-white !default;
+$bg-config-recommendation:          $nb-yellow !default;
+
+$white:                             $nb-white !default;
+$black:                             $nb-black !default;
+
+$dark:                              $nb-black !default;
+$gray-100:                          $gray-lighter !default;
+$gray-500:                          $gray-light !default;
+$gray-600:                          $gray !default;
+$gray-700:                          $gray-dark !default;
+
+$yiq-text-dark:                     $nb-black !default;
+$yiq-text-light:                    $nb-white !default;
+
+$bg-typeahead-fix:                  $white !important  !default;
+
+$theme-colors				: () !default;
+$theme-colors: map-merge((
+        'gray'			: $gray,
+        'gray-light'	: $gray-lighter,
+        'gray-medium'	: $gray-medium,
+        'gray-dark'		: $gray-dark,
+        'gray-darker'	: $nb-black
+), $theme-colors);
+
+$ribbon-custom-bg-colors				: () !default;
+$ribbon-custom-bg-colors: map-merge($theme-colors, (
+        'primary'    : $primary,
+        'secondary'  : $secondary,
+        'success'    : $bg-success,
+        'danger'     : $bg-danger,
+        'warning'    : $bg-warning,
+        'info'       : $white,
+        'light'      : $gray-lighter,
+        'dark'       : $nb-black,
+        'white'      : $nb-black,
+        'transparent': transparent
+));
+
+// ============================================
+// SPACER
+// ============================================
+
+$spacer: 1rem !default;
+$spacers: (
+        0:                                0,
+        1:                                ($spacer * .25),
+        2:                                ($spacer * .5),
+        3:                                $spacer,
+        4:                                ($spacer * 1.5),
+        5:                                ($spacer * 2),
+        6:                                ($spacer * 3),
+        7:                                ($spacer * 4),
+        8:                                ($spacer * 5)
+) !default;
+
+// ============================================
+// GRID
+// ============================================
+
+$grid-gutter-width:                 map-get($spacers, 5) !default;
+
+/* grid breakpoints */
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1300px
+) !default;
+
+/* grid containers */
+
+$container-max-widths: (
+        sm: 97vw,
+        md: 720px,
+        lg: 960px,
+        xl: 1250px
+) !default;
+
+// ============================================
+// NEO-BRUTALIST TYPOGRAPHY
+// ============================================
+
+$line-height-base:                  1.6 !default;
+$nova-theme-path:                   ".." !default;
+$fa-font-path:                      "../base/fontawesome/webfonts" !default;
+
+// Font Families - Bold & Industrial
+$font-family-sans-serif:            'Poppins', 'Helvetica Neue', Arial, sans-serif !default;
+$font-accent:                       'Poppins', 'Helvetica Neue', Arial, sans-serif !default;
+$font-mono:                         'Courier New', Courier, monospace !default;
+
+// Font Sizes - Larger for impact
+$font-size-base:                    rem(16px) !default;
+$font-size-lg:                      rem(18px) !default;
+$font-size-sm:                      rem(14px) !default;
+$font-size-xs:                      rem(12px) !default;
+
+// Font Weights - Heavy for Neo-Brutalism
+$font-weight-lighter		: 300 !default;
+$font-weight-light			: 400 !default;
+$font-weight-normal			: 500 !default;
+$font-weight-semibold		: 700 !default;
+$font-weight-bold			: 800 !default;
+$font-weight-bolder			: 900 !default;
+
+// ============================================
+// NEO-BRUTALIST HEADINGS
+// ============================================
+
+$h1-font-size:                      rem(48px) !default;
+$h2-font-size:                      rem(36px) !default;
+$h3-font-size:                      rem(24px) !default;
+$h4-font-size:                      rem(20px) !default;
+$h5-font-size:                      rem(18px) !default;
+$h6-font-size:                      rem(16px) !default;
+
+$headings-margin-bottom:            $spacer !default;
+$headings-font-family:              $font-accent !default;
+$headings-font-weight:              $font-weight-bolder !default;  // 900 - Extra Bold
+$headings-color:                    $nb-black !default;
+
+// ============================================
+// NEO-BRUTALIST BUTTONS
+// ============================================
+
+// Hard Shadow - Signature Neo-Brutalist effect
+$nb-shadow-offset:                  4px;
+$nb-shadow-color:                   $nb-black;
+$nb-border-width:                   3px;
+
+$btn-box-shadow:                    $nb-shadow-offset $nb-shadow-offset 0 $nb-shadow-color !default;
+$btn-active-box-shadow:             2px 2px 0 $nb-shadow-color !default;
+$btn-focus-box-shadow:              $nb-shadow-offset $nb-shadow-offset 0 $nb-shadow-color !default;
+$btn-focus-width:                   0 !default;
+$btn-decoration:                    none !default;
+$btn-hover-decoration:              none !default;
+$btn-font-weight:                   $font-weight-bold !default;
+
+// ============================================
+// TRANSITIONS - MINIMAL/NONE FOR BRUTALISM
+// ============================================
+
+$transition-base-duration:          0s !default;  // No smooth transitions
+$transition-base-timing:            step-end !default;
+$transition-base:                   none !default;
+$transition-fade:                   opacity 0s step-end !default;
+
+// ============================================
+// STYLES
+// ============================================
+
+$text-muted:                        $gray !default;
+$text-muted-header:                 $gray-dark !default;
+$input-color-placeholder:           $gray !default;
+
+$highlight-border-size:             $nb-border-width !default;
+
+$body-bg:                           $nb-bg-pink !default;  // Pink background!
+$body-color:                        $nb-black !default;
+$table-color:                       $body-color !default;
+
+$copyright-bg-color:               $nb-pink !default;     // Pink copyright bar
+$footer-bg-color:                  $nb-mint !default;     // Mint footer - READABLE!
+$footer-color:                     $nb-black !default;    // Black text on mint
+$header-bg-color:                  $nb-white !default;
+$header-color:                     $nb-black !default;
+$header-bg-color-secondary:        $nb-yellow !default;
+$header-color-secondary:           $nb-black !default;
+
+$headings-color:                    $nb-black !default;
+$navbar-light-hover-color:          $nb-pink !default;    // Pink on hover
+
+/* links */
+
+$link-color:                        $nb-black !default;
+$link-decoration:                   underline !default;
+$link-hover-color:                  $nb-yellow !default;
+$link-hover-decoration:             none !default;
+
+// ============================================
+// NEO-BRUTALIST BORDERS - NO ROUNDED CORNERS
+// ============================================
+
+$border-radius:                     0 !default;
+$border-radius-lg:                  0 !default;
+$border-radius-sm:                  0 !default;
+
+$border-width:                      $nb-border-width !default;
+$border-color:                      $nb-black !default;
+
+/* cards */
+
+$card-border-color:                 $nb-black !default;
+$card-cap-bg:                       $nb-pink !default;    // Pink card headers!
+$card-bg:                           $nb-white !default;
+
+$searchcloud-font-size-scaling:     30% !default;
+$navbar-light-color:                $nb-black !default;
+
+$input-bg:                          $nb-white !default;
+$input-focus-border-color:          $nb-yellow !default;
+$input-focus-box-shadow:            $nb-shadow-offset $nb-shadow-offset 0 $nb-black !default;
+$list-group-bg:                     $nb-white !default;
+$list-group-disabled-bg:            $gray-lighter !default;
+
+$progress-bar-color:                $nb-black !default;
+
+/* tables */
+
+$table-accent-bg:                   $nb-bg-cream !default;
+$table-hover-bg:                    $nb-mint !default;    // Mint hover on tables
+
+$table-cell-padding:                (map-get($spacers, 1) * 3) !default;
+$table-cell-padding-x:              $spacer !default;
+$table-cell-padding-y:              (map-get($spacers, 1) * 3) !default;
+$table-cell-padding-sm:             map-get($spacers, 2) $spacer !default;
+
+$table-striped-order:               even !default;
+
+$sizes: (
+  20:                               20%,
+  40:                               40%,
+  60:                               60%,
+  80:                               80%
+) !default;
+
+// paths
+
+$url-0:                             url(../base/images/loading.gif) !default;
+$url-1:                             url(../base/images/loading-sm.gif) !default;
+
+// tooltips
+
+$tooltip-font-size:                 $font-size-sm !default;
+$tooltip-color:                     $nb-white !default;
+$tooltip-border-color:              $nb-black !default;
+$tooltip-bg:                        $nb-black !default;
+$tooltip-border-radius:             0 !default;
+$tooltip-arrow-color:               $nb-black !default;
+$tooltip-arrow-inner-color:         $nb-black !default;
+$tooltip-border-width:              $nb-border-width !default;
+
+$tooltip-arrow-inner-width:         .8rem !default;
+$tooltip-arrow-inner-height:        .4rem !default;
+$tooltip-arrow-width:               .88rem !default;
+$tooltip-arrow-height:              .45rem !default;
+
+$tooltip-margin:                    .5rem !default;
+
+// input
+
+$input-btn-padding-y:               rem(12px) !default;
+$input-btn-padding-x:               rem(20px) !default;
+$input-btn-padding-y-sm:            rem(8px) !default;
+$input-btn-font-size-sm:            $font-size-base !default;
+
+$input-height:                      calc(#{$line-height-base * 1em} + #{$input-btn-padding-y * 2} + #{$border-width * 2}) !default;
+$input-border-color:                $nb-black !default;
+$custom-select-indicator-padding:   rem(30px) !default;
+$custom-select-indicator-color:     $nb-white !default;
+$custom-select-indicator-bg:        $nb-black !default;
+$custom-select-indicator:           str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='#{$nb-black}' x='0px' y='0px' style='enable-background:new 0 0 32 32;' xml:space='preserve'%3E%3Cpolygon  points='16,18.2 11.8,14.6 12.4,13.8 16,16.8 19.6,13.8 20.2,14.6 '/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-invalid-indicator:   str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32.1 32'%3E%3Crect fill='#{$danger}' width='32.1' height='32'/%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M20.4,15l-4.2,4.2c-0.1,0.1-0.1,0.1-0.2,0.1s-0.2,0-0.2-0.1L11.7,15c-0.1-0.1-0.1-0.1-0.1-0.2s0-0.2,0.1-0.2l0.4-0.4c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1l3.5,3.5l3.5-3.5c0.1-0.1,0.1-0.1,0.2-0.1s0.2,0,0.2,0.1l0.4,0.4c0.1,0.1,0.1,0.1,0.1,0.2S20.5,14.9,20.4,15z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-valid-indicator:     str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32.1 32'%3E%3Crect fill='#{$success}' width='32.1' height='32'/%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M20.4,15l-4.2,4.2c-0.1,0.1-0.1,0.1-0.2,0.1s-0.2,0-0.2-0.1L11.7,15c-0.1-0.1-0.1-0.1-0.1-0.2s0-0.2,0.1-0.2l0.4-0.4c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1l3.5,3.5l3.5-3.5c0.1-0.1,0.1-0.1,0.2-0.1s0.2,0,0.2,0.1l0.4,0.4c0.1,0.1,0.1,0.1,0.1,0.2S20.5,14.9,20.4,15z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-background:          $custom-select-indicator no-repeat right center / auto 100% !default;
+$custom-select-box-shadow:          none !default;
+
+// pagination
+
+$pagination-border-width:           $nb-border-width !default;
+$pagination-bg:                     $nb-white !default;
+$pagination-color:                  $nb-black !default;
+
+$pagination-hover-bg:               $nb-pink !default;    // Pink hover
+$pagination-hover-color:            $nb-black !default;
+
+$pagination-active-bg:              $nb-mint !default;    // Mint active
+$pagination-active-color:           $nb-black !default;
+
+$pagination-focus-box-shadow:       $nb-shadow-offset $nb-shadow-offset 0 $nb-black !default;
+
+$pagination-disabled-color:         $gray-light !default;
+$pagination-disabled-bg:            $gray-lighter !default;
+
+/* breadcrumbs */
+
+$breadcrumb-padding-y:              map-get($spacers, 2) !default;
+$breadcrumb-padding-x:              0 !default;
+
+$breadcrumb-bg:                     transparent !default;
+$breadcrumb-divider-color:          $nb-black !default;
+$breadcrumb-active-color:           $nb-black !default;
+
+$breadcrumb-border-radius:          0 !default;
+$breadcrumb-margin-bottom:          0 !default;
+
+$tap-target-size:                   48px !default;
+$tap-target-size-sm:                40px !default;
+
+// ============================================
+// NEO-BRUTALIST RIBBONS
+// ============================================
+
+//BESTSELLER, 1
+$ribbon-bg-1:                       $nb-yellow !default;
+$ribbon-color-1:                    $nb-black !default;
+//SPECIALOFFERS, 2
+$ribbon-bg-2:                       $nb-lime !default;
+$ribbon-color-2:                    $nb-black !default;
+//NEWPRODUCTS, 3
+$ribbon-bg-3:                       $nb-pink !default;    // Pink for new!
+$ribbon-color-3:                    $nb-black !default;
+//TOPOFFERS, 4
+$ribbon-bg-4:                       $nb-orange !default;
+$ribbon-color-4:                    $nb-black !default;
+//UPCOMINGPRODUCTS, 5
+$ribbon-bg-5:                       $nb-purple !default;  // Purple coming soon
+$ribbon-color-5:                    $nb-white !default;
+//TOPREVIEWS, 6
+$ribbon-bg-6:                       $nb-blue !default;
+$ribbon-color-6:                    $nb-black !default;
+//OUTOFSTOCK, 7
+$ribbon-bg-7:                       $nb-coral !default;
+$ribbon-color-7:                    $nb-white !default;
+//ONSTOCK, 8
+$ribbon-bg-8:                       $nb-mint !default;    // Mint for in stock
+$ribbon-color-8:                    $nb-black !default;
+//PREORDER, 9
+$ribbon-bg-9:                       $nb-lavender !default; // Lavender for pre-order
+$ribbon-color-9:                    $nb-black !default;
+
+$ribbon-colors				: () !default;
+$ribbon-colors: map-merge((
+        '1' : $ribbon-color-1,
+        '2' : $ribbon-color-2,
+        '3' : $ribbon-color-3,
+        '4' : $ribbon-color-4,
+        '5' : $ribbon-color-5,
+        '6' : $ribbon-color-6,
+        '7' : $ribbon-color-7,
+        '8' : $ribbon-color-8,
+        '9' : $ribbon-color-9
+), $ribbon-colors);
+
+$ribbon-bg-colors				: () !default;
+$ribbon-bg-colors: map-merge((
+        '1' : $ribbon-bg-1,
+        '2' : $ribbon-bg-2,
+        '3' : $ribbon-bg-3,
+        '4' : $ribbon-bg-4,
+        '5' : $ribbon-bg-5,
+        '6' : $ribbon-bg-6,
+        '7' : $ribbon-bg-7,
+        '8' : $ribbon-bg-8,
+        '9' : $ribbon-bg-9
+), $ribbon-bg-colors);
+$ribbon-font-size: rem(11px) !default;
+
+/* navs */
+
+$nav-tabs-border-radius					: 0 !default;
+
+$nav-tabs-link-hover-border-color		: $nb-black !default;
+$nav-tabs-link-active-color				: $nb-black !default;
+$nav-tabs-link-active-bg				: $nb-pink !default;  // Pink active tabs
+$nav-tabs-link-active-border-color		: $nb-black !default;
+
+$navbar-nav-link-padding-x: map-get($spacers, 4) !default;
+$navbar-nav-link-padding-y: map-get($spacers, 4) !default;
+$nav-link-padding-x       : 1rem !default;
+$nav-link-padding-sm-x    : .7rem !default;
+$navbar-padding-y         : .5rem !default;
+$navbar-padding-y-lg      : .7rem !default;
+$navbar-image-height      : 2rem !default;
+$navbar-image-height-lg   : rem(49px) !default;
+
+/* modals */
+
+$modal-inner-padding			: $spacer !default;
+
+$modal-content-padding			: $spacer map-get($spacers, 5) !default;
+$modal-content-padding-sm   	: $spacer !default;
+$modal-content-border-width		: $nb-border-width !default;
+$modal-content-box-shadow-sm-up	: 8px 8px 0 $nb-black !default;
+$modal-content-border-radius	: 0 !default;
+
+$modal-header-border-width		: $nb-border-width !default;
+$modal-header-padding-y			: map-get($spacers, 2) !default;
+$modal-header-padding-x			: 0 !default;
+
+$modal-backdrop-opacity			: .9 !default;
+
+$modal-md: 700px !default;
+
+/* progress */
+
+$progress-bg				: $nb-white !default;
+$progress-box-shadow		: inset 0 0 0 $nb-border-width $nb-black !default;
+
+/* options */
+
+$enable-caret				: false !default;
+$enable-shadows				: true !default;
+
+/* dropdowns */
+
+$dropdown-box-shadow		: 6px 6px 0 $nb-black !default;
+$dropdown-border-width		: $nb-border-width !default;
+$dropdown-border-radius		: 0 !default;
+
+$dropdown-link-bg-color	    : transparent;
+
+$dropdown-link-color		: $nb-black !default;
+$dropdown-link-hover-color	: $nb-black !default;
+$dropdown-link-hover-bg		: $nb-pink !default;  // Pink dropdown hover
+
+$dropdown-link-active-color	: $nb-black !default;
+$dropdown-link-active-bg	: $nb-mint !default;  // Mint active
+
+$dropdown-padding-y         : 0 !default;
