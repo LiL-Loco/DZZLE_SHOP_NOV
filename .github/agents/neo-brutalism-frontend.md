@@ -111,19 +111,124 @@ h1 {
 }
 ```
 
-## JTL Shop 5 Theme-Struktur
+## JTL Shop 5 Struktur
 
-### Wichtige Verzeichnisse
-- `templates/NOVA/themes/base/` - Basis-Styles und Libraries
+### Theme CSS-Verzeichnisse
+- `templates/NOVA/themes/base/` - Basis-Styles und Libraries (Bootstrap, FontAwesome, etc.)
 - `templates/NOVA/themes/brutalism/` - Neo-Brutalism Theme
 - `templates/NOVA/themes/blackline/` - Alternatives Theme
 - `templates/NOVA/themes/clear/` - Clean Theme
 - `templates/NOVA/themes/midnight/` - Dark Theme
 
-### Wichtige Dateien pro Theme
+### Wichtige CSS-Dateien pro Theme
 - `{theme-name}.css` - Haupt-Stylesheet
-- `{theme-name}_crit.css` - Critical CSS
+- `{theme-name}_crit.css` - Critical CSS (Above-the-fold)
 - `custom.css` - Benutzerdefinierte Anpassungen
+
+### Template-Dateien (.tpl) - Smarty Templates
+
+JTL Shop 5 verwendet Smarty-Templates. Die .tpl Dateien befinden sich normalerweise in:
+
+**Layout & Basis:**
+- `templates/NOVA/layout/` - Grundlegende Layout-Strukturen
+  - `header.tpl` - Header-Bereich
+  - `footer.tpl` - Footer-Bereich
+  - `index.tpl` - Hauptlayout
+  - `breadcrumb.tpl` - Breadcrumb-Navigation
+
+**Snippets (Wiederverwendbare Komponenten):**
+- `templates/NOVA/snippets/` - Kleine, wiederverwendbare Template-Teile
+  - `button.tpl` - Button-Komponenten
+  - `product_box.tpl` - Produktbox in Listen
+  - `pagination.tpl` - Seitennavigation
+  - `filter.tpl` - Filter-Komponenten
+  - `notification.tpl` - Benachrichtigungen/Alerts
+
+**Shop-Seiten:**
+- `templates/NOVA/productdetails/` - Artikeldetailseite
+  - `index.tpl` - Hauptansicht
+  - `images.tpl` - Produktbilder
+  - `price.tpl` - Preisdarstellung
+  - `variations.tpl` - Variationsauswahl
+
+- `templates/NOVA/productlist/` - Produktlisten/Kategorieseiten
+  - `item_box.tpl` - Einzelnes Produkt in der Liste
+  - `item_list.tpl` - Listenansicht
+  - `item_gallery.tpl` - Galerieansicht
+  - `filter.tpl` - Filteroptionen
+
+- `templates/NOVA/basket/` - Warenkorb
+  - `cart_items.tpl` - Artikel im Warenkorb
+  - `cart_dropdown.tpl` - Warenkorb-Dropdown
+
+- `templates/NOVA/checkout/` - Checkout-Prozess
+  - `step1_login.tpl` - Login/Registrierung
+  - `step2_addresses.tpl` - Adresseingabe
+  - `step3_payment.tpl` - Zahlungsart
+  - `step4_shipping.tpl` - Versandart
+  - `step5_confirmation.tpl` - Bestellübersicht
+
+- `templates/NOVA/account/` - Kundenkonto
+  - `index.tpl` - Kontoübersicht
+  - `orders.tpl` - Bestellhistorie
+  - `settings.tpl` - Kontoeinstellungen
+
+**Wichtige CSS-Klassen aus Templates:**
+Beim CSS-Styling solltest du diese typischen JTL Shop 5 Klassen kennen:
+
+```css
+/* Produktboxen */
+.product-wrapper
+.product-image
+.product-title
+.product-price
+.btn-add-to-cart
+
+/* Layout */
+.header-top
+.header-main
+.navigation
+.breadcrumb-wrapper
+.sidebar
+.content-wrapper
+.footer-wrapper
+
+/* Buttons */
+.btn-primary
+.btn-secondary
+.btn-outline
+.btn-add-to-wishlist
+.btn-add-to-compare
+
+/* Forms */
+.form-group
+.form-control
+.custom-select
+.custom-checkbox
+
+/* Warenkorb */
+.basket-preview
+.basket-item
+.basket-total
+
+/* Filter */
+.filter-wrapper
+.filter-item
+.filter-box
+```
+
+**HTML-Struktur verstehen:**
+Um effektives CSS zu schreiben, musst du die HTML-Struktur aus den .tpl Dateien verstehen. Wenn du CSS anpasst:
+
+1. Suche die entsprechende .tpl Datei im `templates/NOVA/` Verzeichnis
+2. Identifiziere die verwendeten CSS-Klassen und IDs
+3. Schreibe spezifische Selektoren für diese Klassen
+4. Vermeide zu generische Selektoren, die andere Komponenten beeinflussen
+
+**Template-Framework:**
+- JTL Shop 5 basiert auf **Bootstrap 4** (siehe `template.xml`)
+- Nutze Bootstrap-Klassen, aber überschreibe sie für Neo-Brutalism
+- Beachte Bootstrap-Grid: `.container`, `.row`, `.col-*`
 
 ## Best Practices
 
@@ -191,12 +296,36 @@ h1 {
 
 ## Workflow
 
-1. **Analysiere** bestehende CSS-Struktur
-2. **Identifiziere** Komponenten, die angepasst werden sollen
-3. **Implementiere** Neo-Brutalism-Prinzipien
-4. **Teste** auf verschiedenen Geräten und Browsern
-5. **Optimiere** Performance und Code-Qualität
-6. **Dokumentiere** Änderungen im CSS
+1. **Analysiere Template-Struktur**
+   - Prüfe relevante .tpl Dateien in `templates/NOVA/`
+   - Identifiziere verwendete CSS-Klassen und HTML-Struktur
+   - Verstehe die Komponenten-Hierarchie
+
+2. **Analysiere bestehende CSS-Struktur**
+   - Untersuche vorhandene Styles in `themes/brutalism/`
+   - Identifiziere zu überarbeitende Selektoren
+
+3. **Identifiziere Komponenten** die angepasst werden sollen
+   - Buttons, Cards, Forms, Navigation, etc.
+   - Priorisiere nach Wichtigkeit (z.B. Call-to-Action Buttons zuerst)
+
+4. **Implementiere Neo-Brutalism-Prinzipien**
+   - Schreibe spezifische CSS-Regeln
+   - Nutze `.tpl`-Kontext für präzise Selektoren
+   - Überschreibe Bootstrap-Styles wo nötig
+
+5. **Teste** auf verschiedenen Geräten und Browsern
+   - Desktop, Tablet, Mobile
+   - Chrome, Firefox, Safari, Edge
+
+6. **Optimiere** Performance und Code-Qualität
+   - Entferne unnötige Selektoren
+   - Nutze CSS Custom Properties für Wiederverwendbarkeit
+   - Minimiere Spezifität wo möglich
+
+7. **Dokumentiere** Änderungen im CSS
+   - Kommentiere komplexe Selektoren
+   - Gruppiere zusammengehörige Styles
 
 ## Tools & Ressourcen
 
@@ -207,11 +336,25 @@ h1 {
 
 ## Wichtige Hinweise
 
-- **Nur CSS-Änderungen**: Keine PHP- oder JavaScript-Modifikationen
-- **Theme-Fokus**: Arbeite nur in `templates/NOVA/themes/` Verzeichnissen
+- **Nur CSS-Änderungen**: Keine PHP-, JavaScript- oder .tpl-Modifikationen
+  - Lese .tpl Dateien nur zur Analyse der HTML-Struktur
+  - Bearbeite ausschließlich CSS-Dateien in `templates/NOVA/themes/`
+  - Wenn HTML-Änderungen nötig sind, weise den Nutzer darauf hin
+
+- **Template-Analyse**:
+  - Nutze .tpl Dateien, um CSS-Klassen und Selektoren zu identifizieren
+  - Verstehe die DOM-Struktur bevor du CSS schreibst
+  - Referenziere die entsprechende .tpl Datei in CSS-Kommentaren
+
+- **Theme-Fokus**: Arbeite primär in `templates/NOVA/themes/brutalism/`
+  - `brutalism.css` - Hauptänderungen
+  - `custom.css` - Shop-spezifische Anpassungen
+  - `brutalism_crit.css` - Critical CSS (nur wenn nötig)
+
 - **Backup**: Empfehle Backups vor größeren Änderungen
 - **Testing**: Weise auf die Notwendigkeit von Browser-Tests hin
 - **Kompatibilität**: Stelle sicher, dass Änderungen mit JTL Shop 5 kompatibel sind
+- **Bootstrap Override**: Beachte, dass Bootstrap 4 Styles überschrieben werden müssen
 
 ---
 
